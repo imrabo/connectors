@@ -10,11 +10,11 @@ This catalog intentionally lists **hosted Streamable HTTP MCP endpoints**. The c
 
 | Connector | What it provides | Access |
 |---|---|---|
-| GitHub | Repositories, issues, pull requests, code search, and Actions | Free GitHub account + user-provided fine-grained PAT (bearer token) |
-| Cloudflare Documentation | Search and read Cloudflare developer documentation | Public; no sign-in |
-| Context7 | Current, version-specific library and framework documentation | Public basic access; no API key required |
-| draw.io | Create editable diagrams | Public; no sign-in |
-| DeepWiki | Ask questions about public GitHub repositories and generated repository documentation | Public; no sign-in; community-hosted |
+| [GitHub](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server) | Repositories, issues, pull requests, code search, and Actions | Free GitHub account + user-provided fine-grained PAT (bearer token) |
+| [Cloudflare Documentation](https://developers.cloudflare.com/agents/model-context-protocol/) | Search and read Cloudflare developer documentation | Public; no sign-in |
+| [Context7](https://github.com/upstash/context7) | Current, version-specific library and framework documentation | Public basic access; no API key required |
+| [draw.io](https://www.drawio.com/docs/manual/generate/drawio-mcp-server/) | Create editable diagrams | Public; no sign-in |
+| [DeepWiki](https://mcp.deepwiki.com/mcp) | Ask questions about public GitHub repositories and generated repository documentation | Public; no sign-in; community-hosted |
 
 **Pricing note:** “Free” here means the MCP endpoint can be connected without buying an MCP product subscription or paid API credits for the listed basic use. A service may apply rate limits, fair-use restrictions, or change its access policy. GitHub requires a GitHub account and a PAT; the token's permissions determine what the connector can access. DeepWiki is community-hosted rather than an official GitHub service.
 
