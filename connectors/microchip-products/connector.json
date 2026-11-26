@@ -1,0 +1,11 @@
+{
+  "id": "microchip-products",
+  "name": "Microchip Product Data",
+  "description": "Official public MCP for Microchip product specifications, inventory, lead times, documentation, and compliance data. No authentication or charge required.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://api.microchip.com/mcp/resources",
+  "authentication": {
+    "type": "none"
+  }
+}
