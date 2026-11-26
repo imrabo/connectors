@@ -1,0 +1,11 @@
+{
+  "id": "microsoft-learn",
+  "name": "Microsoft Learn",
+  "description": "Official public MCP for searching Microsoft Learn documentation, retrieving articles, and searching code samples. No authentication or charge required.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://learn.microsoft.com/api/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "renesas",
+  "name": "Renesas Web Data",
+  "description": "Official public MCP for Renesas product families, datasheets, orderable parts, lifecycle status, inventory, and cross references. No account, API key, or installation required.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://api.renesas.com/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}
