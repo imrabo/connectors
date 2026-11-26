@@ -42,6 +42,62 @@
       "category": "Developer Tools",
       "version": "1.0.0",
       "manifest": "connectors/deepwiki/connector.json"
+    },
+    {
+      "id": "openai-docs",
+      "name": "OpenAI Developer Documentation",
+      "description": "Official public, read-only documentation MCP for OpenAI developer platform, API, and ChatGPT developer documentation. No API key required.",
+      "category": "Documentation",
+      "version": "1.0.0",
+      "manifest": "connectors/openai-docs/connector.json"
+    },
+    {
+      "id": "microsoft-learn",
+      "name": "Microsoft Learn",
+      "description": "Official public MCP for searching Microsoft Learn documentation, retrieving articles, and searching code samples. No authentication or charge required.",
+      "category": "Documentation",
+      "version": "1.0.0",
+      "manifest": "connectors/microsoft-learn/connector.json"
+    },
+    {
+      "id": "microchip-products",
+      "name": "Microchip Product Data",
+      "description": "Official public MCP for Microchip product specifications, inventory, lead times, documentation, and compliance data. No authentication or charge required.",
+      "category": "Electronics",
+      "version": "1.0.0",
+      "manifest": "connectors/microchip-products/connector.json"
+    },
+    {
+      "id": "microchip-docs",
+      "name": "Microchip MPLAB Documentation",
+      "description": "Official public semantic search MCP for Microchip technical documentation, code examples, videos, training, and reference designs. No authentication required.",
+      "category": "Documentation",
+      "version": "1.0.0",
+      "manifest": "connectors/microchip-docs/connector.json"
+    },
+    {
+      "id": "renesas",
+      "name": "Renesas Web Data",
+      "description": "Official public MCP for Renesas product families, datasheets, orderable parts, lifecycle status, inventory, and cross references. No account, API key, or installation required.",
+      "category": "Electronics",
+      "version": "1.0.0",
+      "manifest": "connectors/renesas/connector.json"
+    },
+    {
+      "id": "mdn",
+      "name": "MDN Web Docs",
+      "description": "Mozilla's experimental public MCP for MDN web platform documentation, search, and browser compatibility data. No authentication required; query analytics are collected and the experiment may be withdrawn.",
+      "category": "Documentation",
+      "version": "1.0.0",
+      "manifest": "connectors/mdn/connector.json"
+    },
+    {
+      "id": "open-targets",
+      "name": "Open Targets Platform",
+      "description": "Official hosted MCP for Open Targets biomedical target-disease and drug-target evidence data. Public platform data; no API key required. Experimental service.",
+      "category": "Science and Research",
+      "version": "1.0.0",
+      "manifest": "connectors/open-targets/connector.json"
     }
   ]
 }
