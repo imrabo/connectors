@@ -1,0 +1,11 @@
+{
+  "id": "github",
+  "name": "GitHub",
+  "description": "Official GitHub MCP server for repository, issue, pull request, code search, and GitHub Actions workflows. Uses a GitHub fine-grained personal access token supplied by the user; token scopes and repository policies determine access.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://api.githubcopilot.com/mcp/",
+  "authentication": {
+    "type": "bearer"
+  }
+}
