@@ -1,0 +1,11 @@
+{
+  "id": "microchip-docs",
+  "name": "Microchip MPLAB Documentation",
+  "description": "Official public semantic search MCP for Microchip technical documentation, code examples, videos, training, and reference designs. No authentication required.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://ai.microchip.com/tools/mplabdocs/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}
