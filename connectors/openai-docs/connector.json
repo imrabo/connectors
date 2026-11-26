@@ -1,0 +1,11 @@
+{
+  "id": "openai-docs",
+  "name": "OpenAI Developer Documentation",
+  "description": "Official public, read-only documentation MCP for OpenAI developer platform, API, and ChatGPT developer documentation. No API key required.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://developers.openai.com/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}
