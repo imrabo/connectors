@@ -1,0 +1,11 @@
+{
+  "id": "cloudflare-docs",
+  "name": "Cloudflare Documentation",
+  "description": "Official public MCP server for searching and reading Cloudflare developer documentation. No account or API key required.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://docs.mcp.cloudflare.com/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}
