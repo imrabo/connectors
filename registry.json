@@ -1,6 +1,47 @@
 {
   "schemaVersion": 1,
   "name": "ImRabo Connector Registry",
-  "description": "Official connector catalog for ImRabo.",
-  "connectors": []
+  "description": "Curated catalog of public hosted MCP connectors that work with ImRabo's Streamable HTTP client. Free access is distinguished from account-authenticated access.",
+  "connectors": [
+    {
+      "id": "github",
+      "name": "GitHub",
+      "description": "Official GitHub MCP server for repositories, issues, pull requests, code search, and Actions. Free GitHub account; authenticate with a fine-grained personal access token. Token permissions determine access.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/github/connector.json"
+    },
+    {
+      "id": "cloudflare-docs",
+      "name": "Cloudflare Documentation",
+      "description": "Official public, no-auth MCP server for searching and reading Cloudflare developer documentation. No account or API key required.",
+      "category": "Documentation",
+      "version": "1.0.0",
+      "manifest": "connectors/cloudflare-docs/connector.json"
+    },
+    {
+      "id": "context7",
+      "name": "Context7 Documentation",
+      "description": "Public MCP endpoint for current, version-specific library and framework documentation. No API key required for basic public access; service limits may apply.",
+      "category": "Documentation",
+      "version": "1.0.0",
+      "manifest": "connectors/context7/connector.json"
+    },
+    {
+      "id": "drawio",
+      "name": "draw.io Diagrams",
+      "description": "Official hosted draw.io MCP server for creating editable diagrams. No account or sign-in required.",
+      "category": "Productivity",
+      "version": "1.0.0",
+      "manifest": "connectors/drawio/connector.json"
+    },
+    {
+      "id": "deepwiki",
+      "name": "DeepWiki",
+      "description": "Community-hosted public MCP endpoint for asking questions about public GitHub repositories and reading generated repository documentation. No sign-in required; availability and usage limits are controlled by the provider.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/deepwiki/connector.json"
+    }
+  ]
 }

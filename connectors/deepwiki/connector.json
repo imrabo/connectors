@@ -1,0 +1,11 @@
+{
+  "id": "deepwiki",
+  "name": "DeepWiki",
+  "description": "Community-hosted public MCP server for asking questions about public GitHub repositories and reading generated repository documentation. No sign-in required; availability and usage limits are controlled by the provider.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://mcp.deepwiki.com/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}

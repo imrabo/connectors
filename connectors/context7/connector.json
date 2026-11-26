@@ -1,0 +1,11 @@
+{
+  "id": "context7",
+  "name": "Context7 Documentation",
+  "description": "Public hosted MCP server for current, version-specific library and framework documentation. Basic public access does not require an API key; provider usage limits may apply.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://mcp.context7.com/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}
