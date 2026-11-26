@@ -1,0 +1,11 @@
+{
+  "id": "open-targets",
+  "name": "Open Targets Platform",
+  "description": "Official hosted MCP for Open Targets biomedical target-disease and drug-target evidence data. Public platform data; no API key required. Experimental service.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://mcp.platform.opentargets.org/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}
