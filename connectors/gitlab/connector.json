@@ -1,0 +1,11 @@
+{
+  "id": "gitlab",
+  "name": "GitLab",
+  "description": "Official GitLab MCP server available on GitLab Free, Premium, and Ultimate. Supports project, issue, merge request and GitLab operations. Requires GitLab authorization; OAuth is recommended, or use a fine-grained personal access token with MCP tool execute permission.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://gitlab.com/api/v4/mcp",
+  "authentication": {
+    "type": "bearer"
+  }
+}
