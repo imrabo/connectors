@@ -1,0 +1,11 @@
+{
+  "id": "mdn",
+  "name": "MDN Web Docs",
+  "description": "Mozilla's experimental public MCP for MDN web platform documentation, search, and browser compatibility data. No authentication required; query analytics are collected and the experiment may be withdrawn.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://mcp.mdn.mozilla.net/",
+  "authentication": {
+    "type": "none"
+  }
+}
