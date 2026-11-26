@@ -1,71 +1,47 @@
 {
   "schemaVersion": 1,
   "name": "ImRabo Connector Registry",
-  "description": "Official connector catalog for ImRabo.",
+  "description": "Curated catalog of public hosted MCP connectors that work with ImRabo's Streamable HTTP client. Free access is distinguished from account-authenticated access.",
   "connectors": [
     {
       "id": "github",
       "name": "GitHub",
-      "description": "Official GitHub MCP server for repository, issue, pull request, code search, and Actions workflows. A GitHub account and token or OAuth authorization are required; normal GitHub account access applies.",
+      "description": "Official GitHub MCP server for repositories, issues, pull requests, code search, and Actions. Free GitHub account; authenticate with a fine-grained personal access token. Token permissions determine access.",
       "category": "Developer Tools",
       "version": "1.0.0",
       "manifest": "connectors/github/connector.json"
     },
     {
-      "id": "filesystem",
-      "name": "Filesystem",
-      "description": "Local file read, write, directory, and search operations restricted to explicitly allowed paths. Runs locally; no paid API subscription required.",
+      "id": "cloudflare-docs",
+      "name": "Cloudflare Documentation",
+      "description": "Official public, no-auth MCP server for searching and reading Cloudflare developer documentation. No account or API key required.",
+      "category": "Documentation",
+      "version": "1.0.0",
+      "manifest": "connectors/cloudflare-docs/connector.json"
+    },
+    {
+      "id": "context7",
+      "name": "Context7 Documentation",
+      "description": "Public MCP endpoint for current, version-specific library and framework documentation. No API key required for basic public access; service limits may apply.",
+      "category": "Documentation",
+      "version": "1.0.0",
+      "manifest": "connectors/context7/connector.json"
+    },
+    {
+      "id": "drawio",
+      "name": "draw.io Diagrams",
+      "description": "Official hosted draw.io MCP server for creating editable diagrams. No account or sign-in required.",
       "category": "Productivity",
       "version": "1.0.0",
-      "manifest": "connectors/filesystem/connector.json"
+      "manifest": "connectors/drawio/connector.json"
     },
     {
-      "id": "fetch",
-      "name": "Fetch",
-      "description": "Fetch public web pages and convert content to readable Markdown. Runs locally and requires no paid API key.",
-      "category": "Web",
-      "version": "1.0.0",
-      "manifest": "connectors/fetch/connector.json"
-    },
-    {
-      "id": "git",
-      "name": "Git",
-      "description": "Inspect local Git repositories, commits, diffs, branches, and repository history. Runs locally with access limited to the configured repository paths.",
+      "id": "deepwiki",
+      "name": "DeepWiki",
+      "description": "Community-hosted public MCP endpoint for asking questions about public GitHub repositories and reading generated repository documentation. No sign-in required; availability and usage limits are controlled by the provider.",
       "category": "Developer Tools",
       "version": "1.0.0",
-      "manifest": "connectors/git/connector.json"
-    },
-    {
-      "id": "memory",
-      "name": "Knowledge Graph Memory",
-      "description": "Local persistent knowledge graph for entities, relations, and observations. No external account or paid API required.",
-      "category": "Productivity",
-      "version": "1.0.0",
-      "manifest": "connectors/memory/connector.json"
-    },
-    {
-      "id": "sequential-thinking",
-      "name": "Sequential Thinking",
-      "description": "Structured planning and reasoning utility for step-wise task decomposition. Runs locally with no paid API key.",
-      "category": "AI Utilities",
-      "version": "1.0.0",
-      "manifest": "connectors/sequential-thinking/connector.json"
-    },
-    {
-      "id": "time",
-      "name": "Time and Timezone",
-      "description": "Read current time and convert between time zones. Runs locally with no paid API key.",
-      "category": "Utilities",
-      "version": "1.0.0",
-      "manifest": "connectors/time/connector.json"
-    },
-    {
-      "id": "playwright",
-      "name": "Playwright Browser Automation",
-      "description": "Automate browser navigation and interaction with Playwright. Runs locally; requires Node.js and browser installation. Browser access can have security implications.",
-      "category": "Developer Tools",
-      "version": "1.0.0",
-      "manifest": "connectors/playwright/connector.json"
+      "manifest": "connectors/deepwiki/connector.json"
     }
   ]
 }
