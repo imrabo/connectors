@@ -1,0 +1,11 @@
+{
+  "id": "drawio",
+  "name": "draw.io Diagrams",
+  "description": "Official hosted draw.io MCP server for creating editable diagrams. No account or sign-in required.",
+  "version": "1.0.0",
+  "transport": "streamableHttp",
+  "endpoint": "https://mcp.draw.io/mcp",
+  "authentication": {
+    "type": "none"
+  }
+}
