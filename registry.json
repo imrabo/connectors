@@ -2,5 +2,70 @@
   "schemaVersion": 1,
   "name": "ImRabo Connector Registry",
   "description": "Official connector catalog for ImRabo.",
-  "connectors": []
+  "connectors": [
+    {
+      "id": "github",
+      "name": "GitHub",
+      "description": "Official GitHub MCP server for repository, issue, pull request, code search, and Actions workflows. A GitHub account and token or OAuth authorization are required; normal GitHub account access applies.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/github/connector.json"
+    },
+    {
+      "id": "filesystem",
+      "name": "Filesystem",
+      "description": "Local file read, write, directory, and search operations restricted to explicitly allowed paths. Runs locally; no paid API subscription required.",
+      "category": "Productivity",
+      "version": "1.0.0",
+      "manifest": "connectors/filesystem/connector.json"
+    },
+    {
+      "id": "fetch",
+      "name": "Fetch",
+      "description": "Fetch public web pages and convert content to readable Markdown. Runs locally and requires no paid API key.",
+      "category": "Web",
+      "version": "1.0.0",
+      "manifest": "connectors/fetch/connector.json"
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "description": "Inspect local Git repositories, commits, diffs, branches, and repository history. Runs locally with access limited to the configured repository paths.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/git/connector.json"
+    },
+    {
+      "id": "memory",
+      "name": "Knowledge Graph Memory",
+      "description": "Local persistent knowledge graph for entities, relations, and observations. No external account or paid API required.",
+      "category": "Productivity",
+      "version": "1.0.0",
+      "manifest": "connectors/memory/connector.json"
+    },
+    {
+      "id": "sequential-thinking",
+      "name": "Sequential Thinking",
+      "description": "Structured planning and reasoning utility for step-wise task decomposition. Runs locally with no paid API key.",
+      "category": "AI Utilities",
+      "version": "1.0.0",
+      "manifest": "connectors/sequential-thinking/connector.json"
+    },
+    {
+      "id": "time",
+      "name": "Time and Timezone",
+      "description": "Read current time and convert between time zones. Runs locally with no paid API key.",
+      "category": "Utilities",
+      "version": "1.0.0",
+      "manifest": "connectors/time/connector.json"
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright Browser Automation",
+      "description": "Automate browser navigation and interaction with Playwright. Runs locally; requires Node.js and browser installation. Browser access can have security implications.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/playwright/connector.json"
+    }
+  ]
 }
