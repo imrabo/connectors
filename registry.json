@@ -98,6 +98,14 @@
       "category": "Science and Research",
       "version": "1.0.0",
       "manifest": "connectors/open-targets/connector.json"
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab",
+      "description": "Official GitLab MCP server available on GitLab Free, Premium, and Ultimate. Supports project, issue, merge request and GitLab operations. Requires GitLab authorization; OAuth is recommended, or use a fine-grained personal access token with MCP tool execute permission.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/gitlab/connector.json"
     }
   ]
 }
