@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/imrabo/connectors/main/schemas/connector.schema.json",
+  "title": "ImRabo Connector Manifest",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "name",
+    "type"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,62}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "type": {
+      "enum": [
+        "mcp",
+        "api",
+        "builtin"
+      ]
+    },
+    "connection": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "auth": {
+      "$ref": "#/$defs/auth"
+    },
+    "authentication": {
+      "$ref": "#/$defs/auth"
+    },
+    "configuration": {
+      "type": "object"
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/tool"
+      }
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "mcp"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "connection": {
+            "type": "object",
+            "required": [
+              "endpoint"
+            ],
+            "properties": {
+              "endpoint": {
+                "type": "string",
+                "format": "uri"
+              },
+              "transport": {
+                "const": "streamableHttp"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "api"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "connection": {
+            "type": "object",
+            "required": [
+              "baseUrl"
+            ],
+            "properties": {
+              "baseUrl": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "tools": {
+            "minItems": 1
+          }
+        },
+        "required": [
+          "connection",
+          "tools"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "builtin"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tools": {
+            "minItems": 1
+          }
+        },
+        "required": [
+          "tools"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "auth": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "none",
+            "bearer",
+            "apiKey",
+            "oauth2",
+            "basic",
+            "custom"
+          ]
+        },
+        "secretRef": {
+          "type": "string"
+        },
+        "location": {
+          "const": "header"
+        },
+        "name": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "tool": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,63}$"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "method": {
+          "enum": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "inputSchema": {
+          "type": "object"
+        },
+        "headers": {
+          "type": "object"
+        },
+        "queryParams": {
+          "type": "object"
+        },
+        "body": {
+          "type": [
+            "object",
+            "array",
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
