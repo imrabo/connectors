@@ -137,7 +137,8 @@
       "description": "Keyless read-only search of Wikipedia articles and retrieval of article summaries through the Wikimedia APIs. Public data; usage policy and rate limits apply.",
       "category": "Search and Knowledge",
       "version": "1.0.0",
-      "manifest": "connectors/wikipedia/connector.json"
+      "manifest": "connectors/wikipedia/connector.json",
+      "type": "api"
     },
     {
       "id": "duckduckgo-instant-answer",
@@ -145,7 +146,8 @@
       "description": "Keyless access to DuckDuckGo definitions, abstracts and related topics. This is an instant-answer API, not full web search results.",
       "category": "Search and Knowledge",
       "version": "1.0.0",
-      "manifest": "connectors/duckduckgo-instant-answer/connector.json"
+      "manifest": "connectors/duckduckgo-instant-answer/connector.json",
+      "type": "api"
     },
     {
       "id": "hacker-news",
@@ -153,7 +155,8 @@
       "description": "Keyless search of public Hacker News stories and recent content through the Algolia-powered HN Search API. Provider rate limits apply.",
       "category": "Developer Tools",
       "version": "1.0.0",
-      "manifest": "connectors/hacker-news/connector.json"
+      "manifest": "connectors/hacker-news/connector.json",
+      "type": "api"
     },
     {
       "id": "open-library",
@@ -161,7 +164,8 @@
       "description": "Keyless search of the public Open Library book catalogue. Follow Open Library request-rate and usage guidelines.",
       "category": "Search and Knowledge",
       "version": "1.0.0",
-      "manifest": "connectors/open-library/connector.json"
+      "manifest": "connectors/open-library/connector.json",
+      "type": "api"
     },
     {
       "id": "github-public",
@@ -169,7 +173,8 @@
       "description": "Keyless read-only search of public GitHub repositories, issues and pull requests. Anonymous rate limits apply; use the authenticated GitHub connector for private resources.",
       "category": "Developer Tools",
       "version": "1.0.0",
-      "manifest": "connectors/github-public/connector.json"
+      "manifest": "connectors/github-public/connector.json",
+      "type": "api"
     },
     {
       "id": "stack-exchange",
@@ -177,7 +182,8 @@
       "description": "Keyless read-only search of public Stack Overflow questions via the Stack Exchange API. Anonymous shared-IP quotas and page limits apply.",
       "category": "Developer Tools",
       "version": "1.0.0",
-      "manifest": "connectors/stack-exchange/connector.json"
+      "manifest": "connectors/stack-exchange/connector.json",
+      "type": "api"
     }
   ]
 }
