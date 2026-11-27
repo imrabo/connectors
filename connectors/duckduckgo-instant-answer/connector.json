@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "duckduckgo-instant-answer",
+  "name": "DuckDuckGo Instant Answers",
+  "description": "Keyless access to DuckDuckGo Instant Answers: topic summaries, definitions, disambiguation and related topics. This is not a full web search results API.",
+  "version": "1.0.0",
+  "type": "api",
+  "connection": {
+    "baseUrl": "https://api.duckduckgo.com"
+  },
+  "auth": {
+    "type": "none"
+  },
+  "tools": [
+    {
+      "name": "instant_answer",
+      "description": "Retrieve DuckDuckGo instant-answer data for a topic, including abstract, definition, answer and related topics when available. Does not return general web search links.",
+      "method": "GET",
+      "path": "/",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "queryParams": {
+        "q": "{{input.query}}",
+        "format": "json",
+        "no_html": 1,
+        "no_redirect": 1,
+        "skip_disambig": 0
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "A topic, entity, term or question for an instant answer.",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
