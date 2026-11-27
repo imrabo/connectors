@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "serper-search",
+  "name": "Serper Google Search",
+  "description": "Direct REST API connector for Google search results through Serper. Returns structured organic results and SERP metadata. Requires a Serper API key and usage credits according to the provider's plan.",
+  "version": "1.0.0",
+  "type": "api",
+  "connection": {
+    "baseUrl": "https://google.serper.dev"
+  },
+  "auth": {
+    "type": "apiKey",
+    "location": "header",
+    "name": "X-API-KEY",
+    "secretRef": "serper-search-api-key"
+  },
+  "configuration": {
+    "credentialFields": [
+      {
+        "key": "serper-search-api-key",
+        "label": "Serper API key",
+        "type": "secret",
+        "required": true,
+        "help": "Create an API key in your Serper account. Keep it private."
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "web_search",
+      "description": "Search Google through Serper and return structured organic results, snippets and search metadata.",
+      "method": "POST",
+      "path": "/search",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "body": {
+        "q": "{{input.query}}",
+        "gl": "in",
+        "hl": "en",
+        "num": 10
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search terms or a natural-language question.",
+            "minLength": 1
+          }
+        },
+        "required": ["query"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
