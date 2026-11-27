@@ -8,7 +8,7 @@ The root `registry.json` contains `schemaVersion` (integer), `name`, `descriptio
 
 ## Common connector manifest
 
-Required: `id`, `name`, `type`. Optional: `description`, `version`, `enabled`, `configuration`, and `tools`.
+Required: `id`, `name`, `type`. Optional: `description`, `version`, `enabled`, `configuration`, `tools`, `documentation`, and `permissions`.
 
 ```json
 {
@@ -58,6 +58,38 @@ Authentication is independent from connector type. Supported schema values:
 - `custom`: explicitly declared static headers and secret references; no scripts.
 
 The app's current API executor supports `none`, `bearer`, header `apiKey`, `basic`, and constrained `custom`. OAuth2 is defined for forward compatibility but must not be advertised as operational until the OAuth account manager is implemented. MCP catalog installation currently supports `none` and bearer credentials.
+
+
+## Documentation and permission disclosures
+
+Connectors can include:
+
+- `documentation`: an absolute HTTPS URL to user-facing setup, provider, or privacy documentation.
+- `permissions`: an array of permission declarations. Each item has a stable `id`, a human-readable `description`, optional `risk` classification (`read`, `write`, `network`, `location`, `microphone`, `files`, `notifications`, `other`), and optional boolean `required`.
+
+Example:
+
+```json
+{
+  "documentation": "https://provider.example.com/docs",
+  "permissions": [
+    {
+      "id": "network.search",
+      "description": "Sends the search query to the provider and returns web results.",
+      "risk": "network",
+      "required": true
+    },
+    {
+      "id": "content.read",
+      "description": "Reads result titles, snippets and URLs returned by the provider.",
+      "risk": "read",
+      "required": true
+    }
+  ]
+}
+```
+
+The app displays these declarations on the connector detail screen and asks the user to acknowledge them before installation or update. They are disclosures, not operating-system permissions: an installed connector still only receives the tools and access enforced by the app runtime. Do not claim a permission or capability that the manifest does not actually provide.
 
 ## Security and review
 
