@@ -24,7 +24,7 @@ scripts/validate_registry.py
 
 ## Validate locally
 
-Run `python scripts/validate_registry.py`. GitHub Actions runs the same check for every pull request and push to main. The validator checks registry uniqueness, manifest paths, ID consistency, execution/auth modes, API HTTP methods and safe paths, declarative templates, and common accidental secret fields.
+Run `python scripts/validate_registry.py`. GitHub Actions runs the same check for every pull request and push to main. The validator checks registry uniqueness, manifest paths, ID consistency, execution/auth modes, API HTTP methods and safe paths, declarative templates, permission disclosures, documentation URLs and common accidental secret fields.
 
 ## Publish
 
@@ -33,11 +33,11 @@ Run `python scripts/validate_registry.py`. GitHub Actions runs the same check fo
 3. Run the validator.
 4. Confirm ImRabo implements the selected type, transport and authentication mode.
 5. Never include credentials or user-specific data.
-6. Open a pull request and describe tool permissions, side effects, provider terms and pricing.
+6. Open a pull request and declare the documentation URL, structured permissions, tool side effects, provider terms and pricing.
 
 ## Security
 
-Manifests are untrusted configuration. The app validates endpoint schemes, methods, paths, schemas and supported authentication. API templates support data substitution only; executable scripts are prohibited. Secrets are collected by the app and stored in secure storage. Never put secrets in URLs or manifests. CI validation is a publishing safeguard, not a replacement for runtime validation.
+Manifests are untrusted configuration. The app validates endpoint schemes, methods, paths, schemas and supported authentication. API templates support data substitution only; executable scripts are prohibited. Secrets are collected by the app and stored in secure storage. Connector manifests may declare a `documentation` HTTPS URL and a `permissions` array so the app can disclose access and side effects and request user acknowledgement before installation. Never put secrets in URLs or manifests. CI validation is a publishing safeguard, not a replacement for runtime validation.
 
 ## Web search API connectors
 
