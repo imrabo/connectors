@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "ImRabo Connector Registry",
-  "description": "Curated catalog of public hosted MCP connectors that work with ImRabo's Streamable HTTP client. Free access is distinguished from account-authenticated access.",
+  "description": "Curated catalog of ImRabo connectors using the mcp, api and builtin execution types, with independent authentication configuration.",
   "connectors": [
     {
       "id": "github",

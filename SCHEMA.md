@@ -1,53 +1,72 @@
-# Connector registry schema
+# ImRabo connector registry schema
 
-## registry.json
+The connector platform has exactly three execution types: `mcp`, `api`, and `builtin`. Authentication is independent of execution type.
 
-The root registry is a JSON object with:
-- `schemaVersion`: integer; currently `1`.
-- `name`: registry display name.
-- `description`: short registry description.
-- `connectors`: array of catalog entries.
+## Registry
 
-Each entry contains `id`, `name`, and `manifest`; `description`, `category`, and `version` are optional.
+The root `registry.json` contains `schemaVersion` (integer), `name`, `description`, and `connectors`. Each catalog entry contains `id`, `name`, and a repository-relative `manifest` path; `description`, `category`, and `version` are optional.
 
-Example:
+## Common connector manifest
+
+Required: `id`, `name`, `type`. Optional: `description`, `version`, `enabled`, `configuration`, and `tools`.
 
 ```json
 {
-  "id": "example-service",
-  "name": "Example Service",
-  "description": "Connect ImRabo to Example Service.",
-  "category": "Productivity",
+  "schemaVersion": 1,
+  "id": "example",
+  "name": "Example",
+  "description": "Example connector",
   "version": "1.0.0",
-  "manifest": "connectors/example-service/connector.json"
+  "type": "mcp",
+  "connection": {
+    "transport": "streamableHttp",
+    "endpoint": "https://mcp.example.com/mcp"
+  },
+  "auth": { "type": "bearer", "secretRef": "example-token" },
+  "configuration": {},
+  "tools": []
 }
 ```
 
-## Connector manifest
+Legacy MCP manifests using root-level `endpoint`, `transport`, and `authentication` remain valid for compatibility.
 
-Required fields: `id`, `name`, and absolute HTTP(S) `endpoint`.
-Optional fields: `description`, `version`, `transport` (defaults to `streamableHttp`), and `authentication.type` (`none` or `bearer`).
+## Connector types
 
-```json
-{
-  "id": "example-service",
-  "name": "Example Service",
-  "description": "Example MCP integration.",
-  "version": "1.0.0",
-  "transport": "streamableHttp",
-  "endpoint": "https://mcp.example.com/mcp",
-  "authentication": { "type": "bearer" }
-}
-```
+### `mcp`
+
+Uses the MCP protocol. `connection.endpoint` must be an absolute HTTP(S) URL. Currently supported transport: `streamableHttp`.
+
+### `api`
+
+Executes declarative HTTP tools directly; no MCP server is required. `connection.baseUrl` must be an absolute HTTP(S) URL. Each tool declares `name`, `description`, `method` (GET, POST, PUT, PATCH, DELETE), `path`, `inputSchema`, and optional `headers`, `queryParams`, and `body`.
+
+Templates may use only `{{input.property.path}}` substitutions. Manifests must not contain executable scripts.
+
+### `builtin`
+
+References a tool implementation already registered by the ImRabo application. Each tool entry declares the registered tool name and optional description/schema metadata. A manifest cannot ship executable code.
+
+## Authentication types
+
+Authentication is independent from connector type. Supported schema values:
+
+- `none`: no credentials.
+- `bearer`: secret sent as an Authorization Bearer token.
+- `apiKey`: secret sent in a named HTTP header (query/cookie placement is intentionally disallowed by the secure default).
+- `oauth2`: OAuth 2.0 account authorization; requires app-side authorization-code + PKCE, state validation, refresh and per-user token storage.
+- `basic`: base64-encoded username:password credential stored as a secret.
+- `custom`: explicitly declared static headers and secret references; no scripts.
+
+The app's current API executor supports `none`, `bearer`, header `apiKey`, `basic`, and constrained `custom`. OAuth2 is defined for forward compatibility but must not be advertised as operational until the OAuth account manager is implemented. MCP catalog installation currently supports `none` and bearer credentials.
 
 ## Security and review
 
-- Publish HTTPS endpoints controlled by the connector publisher.
-- Never commit credentials, tokens, OAuth secrets, or private user data.
-- Never put secrets in endpoint URL user-info, query strings, or fragments.
+- Publish HTTPS endpoints controlled by the provider.
+- Never commit credentials, API keys, OAuth client secrets, passwords, or user tokens.
+- Use secret references; collect and store actual values in platform secure storage.
+- Never put secrets in URLs, query strings, fragments, or repository manifests.
 - Keep manifest paths relative and inside this repository.
-- Describe the scopes and data exposed by connector tools in the pull request.
-- Do not advertise transports or authentication modes unsupported by the current app.
-- Breaking manifest changes require a schema-version change and app compatibility review.
-
-The first app integration supports Streamable HTTP and no-auth or bearer-token authentication only.
+- Validate URLs, HTTP methods, tool schemas, and templates before execution.
+- Do not evaluate scripts or arbitrary expressions from manifests.
+- Describe scopes, data access, side effects, account requirements and pricing accurately.
+- Breaking changes require a schema-version change and app compatibility review.
