@@ -136,6 +136,24 @@ def validate_manifest(entry):
     if manifest_type == "builtin" and not manifest.get("tools"):
         fail(f"{entry['id']}: builtin connector must reference at least one tool")
 
+    documentation = manifest.get("documentation")
+    if documentation:
+        safe_http_url(documentation, f"{entry['id']} documentation")
+    permissions = manifest.get("permissions", [])
+    if not isinstance(permissions, list):
+        fail(f"{entry['id']}: permissions must be an array")
+    for permission in permissions:
+        if not isinstance(permission, dict) or not isinstance(permission.get("id"), str) or not isinstance(permission.get("description"), str):
+            fail(f"{entry['id']}: each permission requires id and description")
+        if set(permission) - {"id", "description", "risk", "required"}:
+            fail(f"{entry['id']}: permission contains unsupported fields")
+        if not re.fullmatch(r"[a-z0-9][a-z0-9._-]{1,63}", permission["id"]):
+            fail(f"{entry['id']}: invalid permission ID {permission['id']!r}")
+        if permission.get("risk", "other") not in {"read", "write", "network", "location", "microphone", "files", "notifications", "other"}:
+            fail(f"{entry['id']}: invalid permission risk")
+        if "required" in permission and not isinstance(permission["required"], bool):
+            fail(f"{entry['id']}: permission required must be a boolean")
+
     encoded = json.dumps(manifest).lower()
     for marker in (
         '"api_key":',
