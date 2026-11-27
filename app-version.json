@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "appId": "imrabo",
+  "channel": "stable",
+  "latestVersion": "1.0.0",
+  "minimumSupportedVersion": "1.0.0",
+  "releaseNotes": "Initial public app update feed. Update this file when a stable ImRabo release is published.",
+  "releaseNotesUrl": "",
+  "downloadUrl": "",
+  "publishedAt": "2026-11-27T00:00:00Z"
+}
