@@ -19,7 +19,8 @@
       "path": "/search/repositories",
       "headers": {
         "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28"
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "ImRabo/1.0"
       },
       "queryParams": {
         "q": "{{input.query}}",
@@ -48,7 +49,8 @@
       "path": "/search/issues",
       "headers": {
         "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28"
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "ImRabo/1.0"
       },
       "queryParams": {
         "q": "{{input.query}}",
