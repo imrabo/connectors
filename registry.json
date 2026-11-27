@@ -130,6 +130,54 @@
       "category": "Web Search",
       "version": "1.0.0",
       "manifest": "connectors/serper-search/connector.json"
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipedia",
+      "description": "Keyless read-only search of Wikipedia articles and retrieval of article summaries through the Wikimedia APIs. Public data; usage policy and rate limits apply.",
+      "category": "Search and Knowledge",
+      "version": "1.0.0",
+      "manifest": "connectors/wikipedia/connector.json"
+    },
+    {
+      "id": "duckduckgo-instant-answer",
+      "name": "DuckDuckGo Instant Answers",
+      "description": "Keyless access to DuckDuckGo definitions, abstracts and related topics. This is an instant-answer API, not full web search results.",
+      "category": "Search and Knowledge",
+      "version": "1.0.0",
+      "manifest": "connectors/duckduckgo-instant-answer/connector.json"
+    },
+    {
+      "id": "hacker-news",
+      "name": "Hacker News Search",
+      "description": "Keyless search of public Hacker News stories and recent content through the Algolia-powered HN Search API. Provider rate limits apply.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/hacker-news/connector.json"
+    },
+    {
+      "id": "open-library",
+      "name": "Open Library",
+      "description": "Keyless search of the public Open Library book catalogue. Follow Open Library request-rate and usage guidelines.",
+      "category": "Search and Knowledge",
+      "version": "1.0.0",
+      "manifest": "connectors/open-library/connector.json"
+    },
+    {
+      "id": "github-public",
+      "name": "GitHub Public Search",
+      "description": "Keyless read-only search of public GitHub repositories, issues and pull requests. Anonymous rate limits apply; use the authenticated GitHub connector for private resources.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/github-public/connector.json"
+    },
+    {
+      "id": "stack-exchange",
+      "name": "Stack Exchange Search",
+      "description": "Keyless read-only search of public Stack Exchange questions. Anonymous shared-IP quotas and page limits apply.",
+      "category": "Developer Tools",
+      "version": "1.0.0",
+      "manifest": "connectors/stack-exchange/connector.json"
     }
   ]
 }
