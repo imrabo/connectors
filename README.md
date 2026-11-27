@@ -45,3 +45,21 @@ Three direct REST API search providers are included in the catalog:
 - **Serper** — API key in `X-API-KEY`.
 
 Each provides a `web_search(query)` tool. These are API connectors, not MCP servers. Users need credentials from the relevant provider; availability, free credits, quotas and pricing depend on provider account terms. See [SCHEMA.md](SCHEMA.md) for the manifest and secure credential contract.
+
+
+## Keyless public API connectors
+
+The catalog also includes direct HTTP API integrations that do not ask users for API keys:
+
+| Connector | Tools | Data/source | Notes |
+|---|---|---|---|
+| `wikipedia` | `search_articles`, `get_article_summary` | English Wikipedia / Wikimedia APIs | Search and read public encyclopaedia pages; follow Wikimedia usage policy |
+| `duckduckgo-instant-answer` | `instant_answer` | DuckDuckGo Instant Answer API | Definitions, abstracts and related topics; **not** full web search |
+| `hacker-news` | `search_stories`, `search_recent` | HN Search (Algolia) | Community stories and comments; provider throttles apply |
+| `open-library` | `search_books` | Open Library | Public book catalogue; follow Open Library request guidelines |
+| `github-public` | `search_repositories`, `search_issues` | GitHub REST Search API | Public repositories/issues only; strict anonymous rate limits |
+| `stack-exchange` | `search_questions` | Stack Exchange API | Public question search; anonymous quota is shared and limited |
+
+These are read-only API connectors. They complement rather than replace the credentialed Brave, Tavily and Serper integrations. In particular, there is no general official Google web-search REST endpoint that can be called anonymously; Google Custom Search and third-party Google SERP APIs require credentials. Do not implement Google web search by scraping result pages. The existing `serper-search` integration is the authenticated Google-results option.
+
+Public endpoints can change, throttle or become unavailable. A no-key connector is not a guarantee of unlimited or commercial-free usage; honour each provider's terms, attribution and rate limits.
