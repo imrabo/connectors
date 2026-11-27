@@ -58,6 +58,13 @@
     },
     "enabled": {
       "type": "boolean"
+    },
+    "endpoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "transport": {
+      "const": "streamableHttp"
     }
   },
   "allOf": [
@@ -70,9 +77,30 @@
         }
       },
       "then": {
-        "properties": {
-          "connection": {
-            "type": "object",
+        "anyOf": [
+          {
+            "required": [
+              "connection"
+            ],
+            "properties": {
+              "connection": {
+                "type": "object",
+                "required": [
+                  "endpoint"
+                ],
+                "properties": {
+                  "endpoint": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "transport": {
+                    "const": "streamableHttp"
+                  }
+                }
+              }
+            }
+          },
+          {
             "required": [
               "endpoint"
             ],
@@ -86,7 +114,7 @@
               }
             }
           }
-        }
+        ]
       }
     },
     {
