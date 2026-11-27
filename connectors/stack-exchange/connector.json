@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "stack-exchange",
+  "name": "Stack Exchange Search",
+  "description": "Keyless, read-only question search across Stack Exchange sites using the public API. Anonymous access is supported with lower shared-IP quotas and page limits; observe attribution and throttling policies.",
+  "version": "1.0.0",
+  "type": "api",
+  "connection": {
+    "baseUrl": "https://api.stackexchange.com"
+  },
+  "auth": {
+    "type": "none"
+  },
+  "tools": [
+    {
+      "name": "search_questions",
+      "description": "Search public questions on Stack Overflow (or another Stack Exchange site) by free-text query; returns question titles, links, tags and score metadata.",
+      "method": "GET",
+      "path": "/2.3/search/advanced",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "queryParams": {
+        "order": "desc",
+        "sort": "relevance",
+        "site": "stackoverflow",
+        "q": "{{input.query}}",
+        "pagesize": 20
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Question search terms.",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
