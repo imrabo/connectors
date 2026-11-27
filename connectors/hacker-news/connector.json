@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "hacker-news",
+  "name": "Hacker News Search",
+  "description": "Keyless search of Hacker News stories and comments using the Algolia-powered HN Search API. Public community content; provider rate limits apply.",
+  "version": "1.0.0",
+  "type": "api",
+  "connection": {
+    "baseUrl": "https://hn.algolia.com"
+  },
+  "auth": {
+    "type": "none"
+  },
+  "tools": [
+    {
+      "name": "search_stories",
+      "description": "Search Hacker News stories by text, with optional tag filter such as story, Ask HN, or Show HN.",
+      "method": "GET",
+      "path": "/api/v1/search",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "queryParams": {
+        "query": "{{input.query}}",
+        "tags": "story",
+        "hitsPerPage": 20
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search terms.",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "search_recent",
+      "description": "Search recent Hacker News stories and comments, sorted by date.",
+      "method": "GET",
+      "path": "/api/v1/search_by_date",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "queryParams": {
+        "query": "{{input.query}}",
+        "tags": "story",
+        "hitsPerPage": 20
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search terms.",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
