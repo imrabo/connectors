@@ -52,9 +52,26 @@
             "maxLength": 400
           }
         },
-        "required": ["query"],
+        "required": [
+          "query"
+        ],
         "additionalProperties": false
       }
+    }
+  ],
+  "documentation": "https://help.tavily.com/articles/4840311948-tavily-search-api",
+  "permissions": [
+    {
+      "id": "network.search",
+      "description": "Sends the search query and configured search options to the provider over HTTPS.",
+      "risk": "network",
+      "required": true
+    },
+    {
+      "id": "results.read",
+      "description": "Reads the search result titles, snippets, URLs and metadata returned by the provider.",
+      "risk": "read",
+      "required": true
     }
   ]
 }
