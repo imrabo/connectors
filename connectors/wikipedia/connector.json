@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "wikipedia",
+  "name": "Wikipedia",
+  "description": "Keyless read-only Wikipedia search and article summaries through the official MediaWiki and Wikimedia REST APIs. Public data; usage policies and rate limits apply.",
+  "version": "1.0.0",
+  "type": "api",
+  "connection": {
+    "baseUrl": "https://en.wikipedia.org"
+  },
+  "auth": {
+    "type": "none"
+  },
+  "tools": [
+    {
+      "name": "search_articles",
+      "description": "Search Wikipedia articles by title or full text and return matching page titles, snippets and page identifiers.",
+      "method": "GET",
+      "path": "/w/api.php",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "ImRabo/1.0 (public API connector)"
+      },
+      "queryParams": {
+        "action": "query",
+        "list": "search",
+        "srsearch": "{{input.query}}",
+        "srlimit": 10,
+        "format": "json",
+        "utf8": 1
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search terms for Wikipedia articles.",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_article_summary",
+      "description": "Get a concise extract and metadata for a Wikipedia article by title. Use an article title such as Earth or Ada_Lovelace.",
+      "method": "GET",
+      "path": "/api/rest_v1/page/summary/{{input.title}}",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "ImRabo/1.0 (public API connector)"
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Wikipedia page title; spaces are accepted.",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
