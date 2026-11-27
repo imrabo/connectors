@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "id": "stack-exchange",
-  "name": "Stack Exchange Search",
-  "description": "Keyless, read-only question search across Stack Exchange sites using the public API. Anonymous access is supported with lower shared-IP quotas and page limits; observe attribution and throttling policies.",
+  "name": "Stack Overflow Search",
+  "description": "Keyless, read-only search of public Stack Overflow questions using the Stack Exchange API. Anonymous access is supported with lower shared-IP quotas and page limits; observe attribution and throttling policies.",
   "version": "1.0.0",
   "type": "api",
   "connection": {
@@ -14,7 +14,7 @@
   "tools": [
     {
       "name": "search_questions",
-      "description": "Search public questions on Stack Overflow (or another Stack Exchange site) by free-text query; returns question titles, links, tags and score metadata.",
+      "description": "Search public Stack Overflow questions by free-text query; returns question titles, links, tags and score metadata.",
       "method": "GET",
       "path": "/2.3/search/advanced",
       "headers": {
