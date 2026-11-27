@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "tavily-search",
+  "name": "Tavily Web Search",
+  "description": "Direct REST API connector for Tavily search, designed for AI applications. Returns ranked sources and extracted content. Requires a Tavily API key.",
+  "version": "1.0.0",
+  "type": "api",
+  "connection": {
+    "baseUrl": "https://api.tavily.com"
+  },
+  "auth": {
+    "type": "bearer",
+    "secretRef": "tavily-search-api-key"
+  },
+  "configuration": {
+    "credentialFields": [
+      {
+        "key": "tavily-search-api-key",
+        "label": "Tavily API key",
+        "type": "secret",
+        "required": true,
+        "help": "Create an API key in your Tavily account. Keep it private."
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "web_search",
+      "description": "Search the web using Tavily's AI-oriented search API. Returns relevant source URLs, content snippets and optional synthesized answer.",
+      "method": "POST",
+      "path": "/search",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "body": {
+        "query": "{{input.query}}",
+        "search_depth": "basic",
+        "topic": "general",
+        "max_results": 10,
+        "include_answer": false,
+        "include_raw_content": false,
+        "include_images": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search terms or a natural-language question.",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": ["query"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

@@ -106,6 +106,30 @@
       "category": "Developer Tools",
       "version": "1.0.0",
       "manifest": "connectors/gitlab/connector.json"
+    },
+    {
+      "id": "brave-search",
+      "name": "Brave Search API",
+      "description": "Web search through the Brave Search API. Requires a Brave Search API subscription token; provider pricing and quotas apply.",
+      "category": "Web Search",
+      "version": "1.0.0",
+      "manifest": "connectors/brave-search/connector.json"
+    },
+    {
+      "id": "tavily-search",
+      "name": "Tavily Search API",
+      "description": "Web search and research results through the Tavily Search API. Requires a Tavily API key; plan limits and pricing apply.",
+      "category": "Web Search",
+      "version": "1.0.0",
+      "manifest": "connectors/tavily-search/connector.json"
+    },
+    {
+      "id": "serper-search",
+      "name": "Serper Search API",
+      "description": "Google Search results through the Serper API. Requires a Serper API key; credits, limits and pricing depend on the account plan.",
+      "category": "Web Search",
+      "version": "1.0.0",
+      "manifest": "connectors/serper-search/connector.json"
     }
   ]
 }

@@ -34,3 +34,14 @@ SCHEMA.md
 ## Security
 
 Manifests are untrusted configuration. The app validates endpoint schemes, methods, paths, schemas and supported authentication. API templates support data substitution only; executable scripts are prohibited. Secrets are collected by the app and stored in secure storage. Never put secrets in URLs or manifests.
+
+
+## Web search API connectors
+
+Three direct REST API search providers are included in the catalog:
+
+- **Brave Search** — subscription token in `X-Subscription-Token`.
+- **Tavily Search** — API key using bearer authentication.
+- **Serper** — API key in `X-API-KEY`.
+
+Each provides a `web_search(query)` tool. These are API connectors, not MCP servers. Users need credentials from the relevant provider; availability, free credits, quotas and pricing depend on provider account terms. See [SCHEMA.md](SCHEMA.md) for the manifest and secure credential contract.
