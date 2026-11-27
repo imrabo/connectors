@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "brave-search",
+  "name": "Brave Web Search",
+  "description": "Direct REST API connector for Brave Search. Returns structured web results, snippets, URLs and optional freshness filtering. Requires a Brave Search API subscription key.",
+  "version": "1.0.0",
+  "type": "api",
+  "connection": {
+    "baseUrl": "https://api.search.brave.com"
+  },
+  "auth": {
+    "type": "apiKey",
+    "location": "header",
+    "name": "X-Subscription-Token",
+    "secretRef": "brave-search-api-key"
+  },
+  "configuration": {
+    "credentialFields": [
+      {
+        "key": "brave-search-api-key",
+        "label": "Brave Search API key",
+        "type": "secret",
+        "required": true,
+        "help": "Create a key in the Brave Search API dashboard. Keep it private."
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "web_search",
+      "description": "Search the public web with Brave and return ranked results with titles, URLs, snippets and metadata. Use this for current information and source discovery.",
+      "method": "GET",
+      "path": "/res/v1/web/search",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "queryParams": {
+        "q": "{{input.query}}",
+        "count": 10,
+        "country": "IN",
+        "search_lang": "en",
+        "safesearch": "moderate"
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search terms or a natural-language question.",
+            "minLength": 1,
+            "maxLength": 600
+          }
+        },
+        "required": ["query"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
