@@ -70,3 +70,44 @@ The app's current API executor supports `none`, `bearer`, header `apiKey`, `basi
 - Do not evaluate scripts or arbitrary expressions from manifests.
 - Describe scopes, data access, side effects, account requirements and pricing accurately.
 - Breaking changes require a schema-version change and app compatibility review.
+
+
+## Published web-search API connectors
+
+The catalog currently includes three direct API integrations:
+
+| Connector | Endpoint | Authentication |
+|---|---|---|
+| `brave-search` | Brave Search Web API | `X-Subscription-Token` header |
+| `tavily-search` | Tavily Search API | Bearer token |
+| `serper-search` | Serper Search API | `X-API-KEY` header |
+
+All three expose a `web_search` tool with a required `query` string. Provider accounts, API keys, quotas and charges are governed by each provider; do not describe these as universally free.
+
+API connector credential metadata may be declared in `configuration.credentialFields`. The app should prompt for each required secret and store it in secure storage under `connector_secret_<key>`, where `<key>` is the manifest's `secretRef`. Never persist the entered secret in the manifest or ordinary database configuration.
+
+Example direct API tool:
+
+```json
+{
+  "type": "api",
+  "connection": { "baseUrl": "https://api.search.brave.com" },
+  "auth": {
+    "type": "apiKey",
+    "location": "header",
+    "name": "X-Subscription-Token",
+    "secretRef": "brave-search-api-key"
+  },
+  "tools": [{
+    "name": "web_search",
+    "method": "GET",
+    "path": "/res/v1/web/search",
+    "queryParams": { "q": "{{input.query}}" },
+    "inputSchema": {
+      "type": "object",
+      "properties": { "query": { "type": "string" } },
+      "required": ["query"]
+    }
+  }]
+}
+```
