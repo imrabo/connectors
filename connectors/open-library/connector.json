@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "open-library",
+  "name": "Open Library",
+  "description": "Keyless search of the Open Library public book catalog, including authors, editions, identifiers and cover metadata. Respect Open Library request-rate and usage guidelines.",
+  "version": "1.0.0",
+  "type": "api",
+  "connection": {
+    "baseUrl": "https://openlibrary.org"
+  },
+  "auth": {
+    "type": "none"
+  },
+  "tools": [
+    {
+      "name": "search_books",
+      "description": "Search the Open Library catalog by title, author, subject or general query and return matching book records.",
+      "method": "GET",
+      "path": "/search.json",
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "ImRabo/1.0 (public API connector)"
+      },
+      "queryParams": {
+        "q": "{{input.query}}",
+        "limit": 20
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Book title, author, subject or free-text search.",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
