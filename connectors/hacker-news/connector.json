@@ -22,7 +22,7 @@
       },
       "queryParams": {
         "query": "{{input.query}}",
-        "tags": "{{input.tags}}",
+        "tags": "story",
         "hitsPerPage": 20
       },
       "inputSchema": {
@@ -33,10 +33,6 @@
             "description": "Search terms.",
             "minLength": 1,
             "maxLength": 300
-          },
-          "tags": {
-            "type": "string",
-            "description": "Optional Algolia tag filter, for example story, ask_hn, show_hn or front_page."
           }
         },
         "required": [
@@ -55,7 +51,7 @@
       },
       "queryParams": {
         "query": "{{input.query}}",
-        "tags": "{{input.tags}}",
+        "tags": "story",
         "hitsPerPage": 20
       },
       "inputSchema": {
@@ -66,10 +62,6 @@
             "description": "Search terms.",
             "minLength": 1,
             "maxLength": 300
-          },
-          "tags": {
-            "type": "string",
-            "description": "Optional Algolia tag filter, for example story or comment."
           }
         },
         "required": [
