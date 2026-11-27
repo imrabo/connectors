@@ -16,6 +16,7 @@ Authentication is orthogonal to connector type. The schema recognizes `none`, `b
 
 ```
 registry.json
+app-version.json
 connectors/<connector-id>/connector.json
 schemas/connector.schema.json
 scripts/validate_registry.py
@@ -45,3 +46,7 @@ Manifests are untrusted configuration. The app validates endpoint schemes, metho
 - **Serper** — API key in `X-API-KEY`.
 
 Each exposes `web_search(query)`. These are API connectors, not MCP servers. Provider accounts, free credits, quotas and pricing depend on provider terms.
+
+## App version feed
+
+`app-version.json` is the public stable-channel update metadata consumed by the app. On each release, maintain `latestVersion`, `minimumSupportedVersion`, `releaseNotes`, `publishedAt`, and populate `downloadUrl` with the actual release asset or store URL. The app only opens HTTPS release URLs that are present in this file; an empty URL displays the update availability without guessing a download location. Do not publish a new version in this feed before the corresponding release is available.
