@@ -173,8 +173,8 @@
     },
     {
       "id": "stack-exchange",
-      "name": "Stack Exchange Search",
-      "description": "Keyless read-only search of public Stack Exchange questions. Anonymous shared-IP quotas and page limits apply.",
+      "name": "Stack Overflow Search",
+      "description": "Keyless read-only search of public Stack Overflow questions via the Stack Exchange API. Anonymous shared-IP quotas and page limits apply.",
       "category": "Developer Tools",
       "version": "1.0.0",
       "manifest": "connectors/stack-exchange/connector.json"
