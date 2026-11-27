@@ -9,7 +9,8 @@
       "description": "Official GitHub MCP server for repositories, issues, pull requests, code search, and Actions. Free GitHub account; authenticate with a fine-grained personal access token. Token permissions determine access.",
       "category": "Developer Tools",
       "version": "1.0.0",
-      "manifest": "connectors/github/connector.json"
+      "manifest": "connectors/github/connector.json",
+      "type": "mcp"
     },
     {
       "id": "cloudflare-docs",
@@ -17,7 +18,8 @@
       "description": "Official public, no-auth MCP server for searching and reading Cloudflare developer documentation. No account or API key required.",
       "category": "Documentation",
       "version": "1.0.0",
-      "manifest": "connectors/cloudflare-docs/connector.json"
+      "manifest": "connectors/cloudflare-docs/connector.json",
+      "type": "mcp"
     },
     {
       "id": "context7",
@@ -25,7 +27,8 @@
       "description": "Public MCP endpoint for current, version-specific library and framework documentation. No API key required for basic public access; service limits may apply.",
       "category": "Documentation",
       "version": "1.0.0",
-      "manifest": "connectors/context7/connector.json"
+      "manifest": "connectors/context7/connector.json",
+      "type": "mcp"
     },
     {
       "id": "drawio",
@@ -33,7 +36,8 @@
       "description": "Official hosted draw.io MCP server for creating editable diagrams. No account or sign-in required.",
       "category": "Productivity",
       "version": "1.0.0",
-      "manifest": "connectors/drawio/connector.json"
+      "manifest": "connectors/drawio/connector.json",
+      "type": "mcp"
     },
     {
       "id": "deepwiki",
@@ -41,7 +45,8 @@
       "description": "Community-hosted public MCP endpoint for asking questions about public GitHub repositories and reading generated repository documentation. No sign-in required; availability and usage limits are controlled by the provider.",
       "category": "Developer Tools",
       "version": "1.0.0",
-      "manifest": "connectors/deepwiki/connector.json"
+      "manifest": "connectors/deepwiki/connector.json",
+      "type": "mcp"
     },
     {
       "id": "openai-docs",
@@ -49,7 +54,8 @@
       "description": "Official public, read-only documentation MCP for OpenAI developer platform, API, and ChatGPT developer documentation. No API key required.",
       "category": "Documentation",
       "version": "1.0.0",
-      "manifest": "connectors/openai-docs/connector.json"
+      "manifest": "connectors/openai-docs/connector.json",
+      "type": "mcp"
     },
     {
       "id": "microsoft-learn",
@@ -57,7 +63,8 @@
       "description": "Official public MCP for searching Microsoft Learn documentation, retrieving articles, and searching code samples. No authentication or charge required.",
       "category": "Documentation",
       "version": "1.0.0",
-      "manifest": "connectors/microsoft-learn/connector.json"
+      "manifest": "connectors/microsoft-learn/connector.json",
+      "type": "mcp"
     },
     {
       "id": "microchip-products",
@@ -65,7 +72,8 @@
       "description": "Official public MCP for Microchip product specifications, inventory, lead times, documentation, and compliance data. No authentication or charge required.",
       "category": "Electronics",
       "version": "1.0.0",
-      "manifest": "connectors/microchip-products/connector.json"
+      "manifest": "connectors/microchip-products/connector.json",
+      "type": "mcp"
     },
     {
       "id": "microchip-docs",
@@ -73,7 +81,8 @@
       "description": "Official public semantic search MCP for Microchip technical documentation, code examples, videos, training, and reference designs. No authentication required.",
       "category": "Documentation",
       "version": "1.0.0",
-      "manifest": "connectors/microchip-docs/connector.json"
+      "manifest": "connectors/microchip-docs/connector.json",
+      "type": "mcp"
     },
     {
       "id": "renesas",
@@ -81,7 +90,8 @@
       "description": "Official public MCP for Renesas product families, datasheets, orderable parts, lifecycle status, inventory, and cross references. No account, API key, or installation required.",
       "category": "Electronics",
       "version": "1.0.0",
-      "manifest": "connectors/renesas/connector.json"
+      "manifest": "connectors/renesas/connector.json",
+      "type": "mcp"
     },
     {
       "id": "mdn",
@@ -89,7 +99,8 @@
       "description": "Mozilla's experimental public MCP for MDN web platform documentation, search, and browser compatibility data. No authentication required; query analytics are collected and the experiment may be withdrawn.",
       "category": "Documentation",
       "version": "1.0.0",
-      "manifest": "connectors/mdn/connector.json"
+      "manifest": "connectors/mdn/connector.json",
+      "type": "mcp"
     },
     {
       "id": "open-targets",
@@ -97,7 +108,8 @@
       "description": "Official hosted MCP for Open Targets biomedical target-disease and drug-target evidence data. Public platform data; no API key required. Experimental service.",
       "category": "Science and Research",
       "version": "1.0.0",
-      "manifest": "connectors/open-targets/connector.json"
+      "manifest": "connectors/open-targets/connector.json",
+      "type": "mcp"
     },
     {
       "id": "gitlab",
@@ -105,7 +117,8 @@
       "description": "Official GitLab MCP server available on GitLab Free, Premium, and Ultimate. Supports project, issue, merge request and GitLab operations. Requires GitLab authorization; OAuth is recommended, or use a fine-grained personal access token with MCP tool execute permission.",
       "category": "Developer Tools",
       "version": "1.0.0",
-      "manifest": "connectors/gitlab/connector.json"
+      "manifest": "connectors/gitlab/connector.json",
+      "type": "mcp"
     },
     {
       "id": "brave-search",
@@ -113,7 +126,8 @@
       "description": "Web search through the Brave Search API. Requires a Brave Search API subscription token; provider pricing and quotas apply.",
       "category": "Web Search",
       "version": "1.0.0",
-      "manifest": "connectors/brave-search/connector.json"
+      "manifest": "connectors/brave-search/connector.json",
+      "type": "api"
     },
     {
       "id": "tavily-search",
@@ -121,7 +135,8 @@
       "description": "Web search and research results through the Tavily Search API. Requires a Tavily API key; plan limits and pricing apply.",
       "category": "Web Search",
       "version": "1.0.0",
-      "manifest": "connectors/tavily-search/connector.json"
+      "manifest": "connectors/tavily-search/connector.json",
+      "type": "api"
     },
     {
       "id": "serper-search",
@@ -129,7 +144,8 @@
       "description": "Google Search results through the Serper API. Requires a Serper API key; credits, limits and pricing depend on the account plan.",
       "category": "Web Search",
       "version": "1.0.0",
-      "manifest": "connectors/serper-search/connector.json"
+      "manifest": "connectors/serper-search/connector.json",
+      "type": "api"
     }
   ]
 }
