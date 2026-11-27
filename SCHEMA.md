@@ -111,3 +111,18 @@ Example direct API tool:
   }]
 }
 ```
+
+
+## Keyless public API examples
+
+The registry includes read-only `api` manifests for Wikipedia, DuckDuckGo Instant Answers, Hacker News (Algolia HN Search), Open Library, public GitHub search, and Stack Exchange question search. Each uses `auth.type: "none"` and fixed provider-owned HTTPS origins.
+
+Important distinctions:
+
+- DuckDuckGo Instant Answers returns abstracts, definitions and related topics; it is not a general web-results API.
+- Anonymous GitHub Search is limited and only exposes public data. Use the authenticated `github` MCP connector for private resources or higher limits.
+- Stack Exchange allows anonymous API access with shared-IP quotas and a maximum anonymous page depth. A registered application key increases quota but is not needed for these basic public search calls.
+- Public API availability and quotas are controlled by each provider. Read and follow upstream attribution, rate-limit and acceptable-use requirements.
+- Google does not offer a general official anonymous web-search REST API. Do not scrape Google result pages as a substitute. Google Books is a separate API and follows its own application-identification requirements; it must not be represented as Google Web Search.
+
+Keep keyless manifests read-only, narrow in scope and limited to provider-controlled HTTPS origins. Do not add an arbitrary user-supplied URL fetch tool without SSRF protections and explicit host allowlisting.
